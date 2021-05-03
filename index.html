@@ -49,11 +49,9 @@
             </header>
             <p>R utiliza diferentes estructuras de datos. La estructura más simple es el vector, que es
                 una colección ordenada de números.</p>
-            <code>
-                    x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
+            <code>x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
                 </code>
-            <p>
-                El operador de asignación, (‘<-’), no es el operador habitual, ‘=’, que se reserva para otro propósito,
+            <p>El operador de asignación, (‘<-’), no es el operador habitual, ‘=’, que se reserva para otro propósito,
                     sino que consiste en dos caracteres, ‘<’ (‘menor que’) y ‘-’ (‘guión’), que obligatoriamente deben
                     ir unidos y ’apuntan’ hacia el objeto que recibe el valor de la expresión. La asignación se puede
                     hacer de diferentes formas. <ul>
@@ -100,51 +98,115 @@
                 como componentes.
                 No es necesario que los componentes sean del mismo modo.
             </p>
-            <code>> Lst <- list(nombre="Pedro", esposa="Mar´ıa", no.hijos=3,
+            <code>> Lst <- list(nombre="Pedro", esposa="María", no.hijos=3,
                 edad.hijos=c(4,7,9))</code>
-                <h3>Construcción y modificación de listas</h3>
+            <h3>Construcción y modificación de listas</h3>
             <p>La función list() permite crear listas a partir de objetos ya existentes. Una asignación
                 de la forma. Se almacena en Lista una lista de m componentes que son objeto 1, . . ., objeto m; a los
                 cuales asigna los nombres nombre 1, . . .,nombre m; que pueden ser libremente elegidos.
-                </p>
-           <code>
+            </p>
+            <code>
             > Lista <- list(nombre 1=objeto 1,. . .,nombre m=objeto m)  
-           </code> 
-           <code>> Lst[5] <- list(matriz=Mat)</code> Las listas, como todos los objetos indexados, pueden ampliarse especificando componentes adicionales.
+           </code>
+            <code> > Lst[5] <- list(matriz=Mat)</code> Las listas, como todos los objetos indexados, pueden ampliarse
+            especificando componentes adicionales.
+            <h3>Concatenación de listas</h3>
+            <p>Al suministrar listas como argumentos a la función c() el resultado es una lista, cuyos
+                componentes son todos los de los argumentos unidos sucesivamente.</p>
+            <code> > lista.ABC <- c(lista.A, lista.B, lista.C)</code> Recuerde que cuando los argumentos eran vectores,
+            esta función los unía todos en un
+            único vector.
+            <h3>Hojas de datos (Data frames)</h3>
+            <p>Una hoja de datos (Data frame) es una lista que pertenece a la clase "data.frame".
+                Hay restricciones en las listas que pueden pertenecer a esta clase, en particular:</p>
+            <ul>
+                <li>Los componentes deben ser vectores (numéricos, cadenas de caracteres, o lógicos),
+                    factores, matrices numéricas, listas u otras hojas de datos.</li>
+                <li>Las matrices, listas, y hojas de datos contribuyen a la nueva hoja de datos con tantas
+                    variables como columnas, elementos o variables posean, respectivamente.</li>
+                <li>Los vectores numéricos y los factores se incluyen sin modificar, los vectores no numéricos
+                    se fuerzan a factores cuyos niveles son los únicos valores que aparecen en el vector.</li>
+                <li>Los vectores que constituyen la hoja de datos deben tener todos la misma longitud, y
+                    las matrices deben tener el mismo tama˜no de filas</li>
+            </ul>
+            <p>Se puede construir una hoja de datos utilizando la siguiente función:</p>
+            <code>> cont <- data.frame(dom=FactorEstado, bot=ingresos, dis=FactorIngresos)</code>
+            <h3>Funciones attach() y detach()</h3>
+            <p>La función attach() puede tener como argumento el nombre de una lista o de una hoja
+                de datos y permite conectar la lista o la hoja de datos directamente.</p>
+            <p>La función detach() permite desconectar una hoja de datos.</p>
         </section>
         <section class="main-section" id="Lectura">
             <header>
                 <h1>Lectura</h1>
             </header>
-            <p></p>
-            <p></p>
-            <code></code>
+            <p>
+                Los datos suelen leerse desde archivos externos y no teclearse de modo interactivo. Las
+                capacidades de lectura de archivos de R son sencillas y sus requisitos son bastante estrictos
+                cuando no inflexibles. Se presupone que el usuario es capaz de modificar los archivos de
+                datos con otras herramientas, por ejemplo con editores de texto, para ajustarlos a las
+                necesidades de R.
+            </p>
+            <p>
+                La función read.fwf() puede utilizarse para leer un archivo con campos de anchura fija
+                no delimitados.
+            </p>
+            <h3>La función read.table()</h3>
+            Para poder leer una hoja de datos directamente, el archivo externo debe reunir las
+condiciones adecuadas. La forma más sencilla es:
+<ul>
+    <li>
+        La primera línea del archivo debe contener el nombre de cada variable de la hoja de
+        datos.
+    </li>
+    <li>
+        En cada una de las siguientes líneas, el primer elemento es la etiqueta de la fila, y a
+        continuación deben aparecer los valores de cada variable. Ejemplo:
+    </li>
+</ul>
+            <code>> PreciosCasas <- read.table("datos.casas")</code>
         </section>
         <section class="main-section" id="Condicional">
             <header>
                 <h1>Condicional</h1>
             </header>
-            <p></p>
-            <p></p>
-            <code></code>
+            <h3>Ejecución condicional: la orden if</h3>
+            <p>Existe una construcción condicional de la forma</p>
+            <code>> if (expr 1) expr 2 else expr 3</code> <p>A menudo suelen utilizarse los operadores && y || como condiciones de una orden if.</p>
+            <h3>Ciclos: Órdenes for, repeat y while</h3>
+            <p>Existe una construcción repetitiva de la forma</p>
+            <code>> for (nombre in expr 1) expr 2</code>
+            Otras estructuras de repetición son
+<code>> repeat expr</code>
+y
+<code>> while (condición) expr</code>
+<p>La función break se utiliza para terminar cualquier ciclo. Esta es la única forma (salvo
+    que se produzca un error) de finalizar un ciclo repeat.
+    La función next deja de ejecutar el resto de un ciclo y pasa a ejecutar el siguiente.</p>
         </section>
         <section class="main-section" id="Grafico">
             <header>
                 <h1>Grafico</h1>
             </header>
-            <p></p>
-            <p></p>
-            <code></code>
-        </section>
+            <p>Las órdenes gráficas de nivel alto están diseñadas para generar un gráfico completo a
+                partir de unos datos pasados a la función como argumento. Cuando es necesario se generan
+                automáticamente ejes, etiquetas o títulos (salvo que se especifique lo contrario). Estas
+                órdenes comienzan siempre un nuevo gráfico, borrando el actual si ello es necesario.</p>
+            <h3>La función plot</h3>
+            <p>Una de las funciones gráficas más utilizadas en R es plot, que es una función genérica,
+                esto es, el tipo de gráfico producido es dependiente de la clase del primer argumento.</p>
+                <code>plot(x, y)</code>
 
+        </section>
+        <footer class="bg-light text-center text-lg-start">
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                Hecho con <span class="heart">&#9829;</span> por
+                <a class="text-dark" href="https://facebook/hildera">Hilder Arrieta</a>
+            </div>
+        </footer>
     </main>
 
-    <footer class="bg-light text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            Hecho con <span class="heart">&#9829;</span> por
-            <a class="text-dark" href="https://facebook/hildera">Hilder Arrieta</a>
-        </div>
-    </footer>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
