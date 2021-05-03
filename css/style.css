@@ -96,6 +96,9 @@ code {
 a {
     color: white;
 }
+.reference {
+    color: black !important;
+}
 hr {
     border: 15px;
     color:rgb(230, 230, 230)
