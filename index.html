@@ -47,35 +47,70 @@
             <header>
                 <h1>Numeros y vectores</h1>
             </header>
-            <p></p>
+            <p>R utiliza diferentes estructuras de datos. La estructura más simple es el vector, que es
+                una colección ordenada de números.</p>
+            <code>
+                    x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
+                </code>
             <p>
+                El operador de asignación, (‘<-’), no es el operador habitual, ‘=’, que se reserva para otro propósito,
+                    sino que consiste en dos caracteres, ‘<’ (‘menor que’) y ‘-’ (‘guión’), que obligatoriamente deben
+                    ir unidos y ’apuntan’ hacia el objeto que recibe el valor de la expresión. La asignación se puede
+                    hacer de diferentes formas. <ul>
+                    <li>
+                        <code>> assign("x", c(10.4, 5.6, 3.1, 6.4, 21.7))</code>
+                    </li>
+                    <li>
+                        <code>> c(10.4, 5.6, 3.1, 6.4, 21.7) -> x</code>
+                    </li>
+                    </ul>
+            </p>
+            <h3>Aritmética vectorial</h3>
+            <p>
+                Los vectores pueden usarse en expresiones aritméticas, en cuyo caso las operaciones
+                se realizan elemento a elemento. Dos vectores que se utilizan en la misma expresión no
+                tienen por qué ser de la misma longitud. Si no lo son, el resultado será un vector de la
+                longitud del más largo, y el más corto será reciclado, repitiéndolo tantas veces como sea
+                necesario (puede que no un número exacto de veces) hasta que coincida con el más largo.
+                En particular, cualquier constante será simplemente repetida. De este modo, y siendo x e
+                y los vectores antes definidos, la orden
+                <code>> v <- 2*x + y + 1</code>
+            <h3>Generación de sucesiones</h3>
+            En R existen varias funciones para generar sucesiones numéricas.
             <ul>
                 <li>
-
+                    <code> 30:1</code> Permite construir una sucesión descendente.
                 </li>
                 <li>
-
+                    <code>  seq(-5, 5, by=.2) -> s3 </code> Permite generar sucesiones más complejas.
                 </li>
-                <li>
 
-                </li>
                 <li>
-
-                </li>
-                <li>
-
+                    <code> s5 <- rep(x, times=5)</code> Permite duplicar un objeto de formas
+                    diversas.
                 </li>
             </ul>
             </p>
-            <code></code>
         </section>
         <section class="main-section" id="Listas_y_hojas">
             <header>
                 <h1>Listas y hojas</h1>
             </header>
-            <p></p>
-            <p></p>
-            <code></code>
+            <p>En R, una lista es un objeto consistente en una colección ordenada de objetos, conocidos
+                como componentes.
+                No es necesario que los componentes sean del mismo modo.
+            </p>
+            <code>> Lst <- list(nombre="Pedro", esposa="Mar´ıa", no.hijos=3,
+                edad.hijos=c(4,7,9))</code>
+                <h3>Construcción y modificación de listas</h3>
+            <p>La función list() permite crear listas a partir de objetos ya existentes. Una asignación
+                de la forma. Se almacena en Lista una lista de m componentes que son objeto 1, . . ., objeto m; a los
+                cuales asigna los nombres nombre 1, . . .,nombre m; que pueden ser libremente elegidos.
+                </p>
+           <code>
+            > Lista <- list(nombre 1=objeto 1,. . .,nombre m=objeto m)  
+           </code> 
+           <code>> Lst[5] <- list(matriz=Mat)</code> Las listas, como todos los objetos indexados, pueden ampliarse especificando componentes adicionales.
         </section>
         <section class="main-section" id="Lectura">
             <header>
@@ -101,15 +136,19 @@
             <p></p>
             <code></code>
         </section>
-        <nav id="navbar"></nav>
+
     </main>
+
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             Hecho con <span class="heart">&#9829;</span> por
             <a class="text-dark" href="https://facebook/hildera">Hilder Arrieta</a>
         </div>
     </footer>
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
 </html>
